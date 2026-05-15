@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-encoding-pytorch-module"
+version = "0.1.0"
+description = "PyTorch implementation of a fixed quantum-encoding layer."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "torch>=2.11.0",
+    "numpy>=1.26.0",
+    "scikit-learn>=1.5.0",
+]
+
+[project.optional-dependencies]
+benchmark = [
+    "matplotlib>=3.9.0",
+    "pandas>=2.2.0",
+]
+test = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+quantum-encoding-benchmark = "quantum_encoding.benchmarks.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["quantum_encoding*"]
